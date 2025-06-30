@@ -6,6 +6,8 @@ import AuthLayout from 'src/layout/authLayout';
 
 // Lazy loaded components
 const FormPage = lazy(() => import('src/pages/form'));
+const FormList = lazy(() => import('src/pages/form-list'));
+
 
 
 // Layout + fallback
@@ -24,10 +26,10 @@ const authRoutes = [
     children: [
       {
         index: true,
-        element: <Navigate to="auth" replace />, // ✅ This is the key fix
+        element: <Navigate to="form" replace />, // ✅ This is the key fix
       },
       {
-        path: 'auth',
+        path: 'form',
         element: <Outlet />,
         children: [
           { index: true, element: <FormPage /> },

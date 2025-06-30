@@ -17,8 +17,8 @@ const AuthLayout: React.FC<MainLayoutProps> = ({ children }) => {
       }}
     >
       {/* Main Content */}
-      <Box component="main" sx={{ bgcolor:"red"}}>
-        <Container maxWidth="xl">
+      <Box component="main" >
+        <Container maxWidth="sm">
           {children}
         </Container>
       </Box>

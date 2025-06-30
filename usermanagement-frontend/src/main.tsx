@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom'; // ✅ Import BrowserRouter
 import App from './App';
 import { store } from './store';
+import { FormProvider } from './context/form-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -14,7 +15,9 @@ root.render(
       <Provider store={store}>
         <BrowserRouter> {/* ✅ Fix is here */}
           <Suspense fallback={<div>Loading...</div>}>
+          <FormProvider>
             <App />
+          </FormProvider>
           </Suspense>
         </BrowserRouter>
       </Provider>

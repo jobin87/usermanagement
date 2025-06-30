@@ -9,7 +9,7 @@ type FormDividerProps = {
   label?: React.ReactNode;
 };
 
-export function FormDivider({ sx, label = 'OR' }: FormDividerProps) {
+export function FormDivider({ sx, label = '' }: FormDividerProps) {
   return (
     <Divider
       sx={{
