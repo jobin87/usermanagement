@@ -1,8 +1,7 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
-import { CONFIG } from 'src/config-global';
-import { SubmittedFormList } from 'src/section/form-list';
-
+import { CONFIG } from "src/config-global";
+import { FormListPageView } from "src/section/auth/view/form-list-view";
 
 // ----------------------------------------------------------------------
 
@@ -15,7 +14,7 @@ export default function Page() {
         <title> {metadata.title}</title>
       </Helmet>
 
-      <SubmittedFormList/>
+      <FormListPageView />
     </>
   );
 }

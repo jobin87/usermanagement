@@ -10,6 +10,7 @@ type FormData = {
 type FormContextType = {
   formList: FormData[];
   addForm: (data: FormData) => void;
+  setFormList: React.Dispatch<React.SetStateAction<FormData[]>>;
 };
 const defaultValues: FormData = {
   Name: "",
@@ -35,7 +36,7 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <FormContext.Provider value={{ formList, addForm }}>
+    <FormContext.Provider value={{ formList, addForm ,setFormList}}>
       {children}
     </FormContext.Provider>
   );

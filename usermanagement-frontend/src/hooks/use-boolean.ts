@@ -1,4 +1,4 @@
-import { useMemo, useState, useCallback } from 'react';
+import { useMemo, useState, useCallback } from "react";
 
 // ----------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ export function useBoolean(defaultValue: boolean = false): UseBooleanReturn {
       onToggle,
       setValue,
     }),
-    [value, onTrue, onFalse, onToggle, setValue]
+    [value, onTrue, onFalse, onToggle, setValue],
   );
 
   return memoizedValue;

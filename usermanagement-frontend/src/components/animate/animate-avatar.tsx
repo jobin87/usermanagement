@@ -1,11 +1,11 @@
-import type { Transition } from 'framer-motion';
-import type { BoxProps } from '@mui/material/Box';
-import type { AvatarProps } from '@mui/material/Avatar';
+import type { Transition } from "framer-motion";
+import type { BoxProps } from "@mui/material/Box";
+import type { AvatarProps } from "@mui/material/Avatar";
 
-import { m } from 'framer-motion';
+import { m } from "framer-motion";
 
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
 
 // ----------------------------------------------------------------------
 
@@ -38,17 +38,17 @@ export function AnimateAvatar({
         width,
         height: width,
         flexShrink: 0,
-        borderRadius: '50%',
-        position: 'relative',
-        alignItems: 'center',
-        display: 'inline-flex',
-        justifyContent: 'center',
+        borderRadius: "50%",
+        position: "relative",
+        alignItems: "center",
+        display: "inline-flex",
+        justifyContent: "center",
         ...sx,
       }}
       {...other}
     >
       <Avatar
-        alt={slotProps?.avatar?.alt ?? 'My avtar'}
+        alt={slotProps?.avatar?.alt ?? "My avtar"}
         src={slotProps?.avatar?.src}
         sx={{
           zIndex: 1,
@@ -66,7 +66,7 @@ export function AnimateAvatar({
         animate={{ rotate: 360 }}
         transition={{
           duration: 8,
-          ease: 'linear',
+          ease: "linear",
           repeat: Infinity,
           ...slotProps?.animate?.transition,
         }}
@@ -75,13 +75,16 @@ export function AnimateAvatar({
           left: 0,
           width: 1,
           height: 1,
-          position: 'absolute',
-          borderRadius: 'inherit',
-          background: slotProps?.overlay?.color ?? 'conic-gradient(cyan, magenta, yellow, cyan)',
-          mask: 'linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0)',
-          WebkitMask: 'linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0)',
-          maskComposite: 'exclude',
-          WebkitMaskComposite: 'xor',
+          position: "absolute",
+          borderRadius: "inherit",
+          background:
+            slotProps?.overlay?.color ??
+            "conic-gradient(cyan, magenta, yellow, cyan)",
+          mask: "linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0)",
+          WebkitMask:
+            "linear-gradient(#FFF 0 0) content-box, linear-gradient(#FFF 0 0)",
+          maskComposite: "exclude",
+          WebkitMaskComposite: "xor",
           p: `${borderWidth}px`,
         }}
       />

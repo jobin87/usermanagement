@@ -1,14 +1,13 @@
-import type { MotionProps } from 'framer-motion';
-import type { BoxProps } from '@mui/material/Box';
+import type { MotionProps } from "framer-motion";
+import type { BoxProps } from "@mui/material/Box";
 
-import { m } from 'framer-motion';
-import { forwardRef } from 'react';
+import { m } from "framer-motion";
+import { forwardRef } from "react";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
-
-import { varContainer } from './variants';
-import { useResponsive } from 'src/hooks/use-responsive';
+import { varContainer } from "./variants";
+import { useResponsive } from "src/hooks/use-responsive";
 
 // ----------------------------------------------------------------------
 
@@ -19,7 +18,7 @@ export type MotionViewportProps = BoxProps &
 
 export const MotionViewport = forwardRef<HTMLDivElement, MotionViewportProps>(
   ({ children, disableAnimate = true, ...other }, ref) => {
-    const smDown = useResponsive('down', 'sm');
+    const smDown = useResponsive("down", "sm");
 
     const disabled = smDown && disableAnimate;
 
@@ -27,8 +26,8 @@ export const MotionViewport = forwardRef<HTMLDivElement, MotionViewportProps>(
       ? {}
       : {
           component: m.div,
-          initial: 'initial',
-          whileInView: 'animate',
+          initial: "initial",
+          whileInView: "animate",
           variants: varContainer(),
           viewport: { once: true, amount: 0.3 },
         };
@@ -38,5 +37,5 @@ export const MotionViewport = forwardRef<HTMLDivElement, MotionViewportProps>(
         {children}
       </Box>
     );
-  }
+  },
 );

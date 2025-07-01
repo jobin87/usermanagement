@@ -1,8 +1,8 @@
-import type { TextFieldProps } from '@mui/material/TextField';
+import type { TextFieldProps } from "@mui/material/TextField";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import TextField from '@mui/material/TextField';
+import TextField from "@mui/material/TextField";
 
 // ----------------------------------------------------------------------
 
@@ -22,9 +22,9 @@ export function RHFTextField({ name, helperText, type, ...other }: Props) {
           {...field}
           fullWidth
           type={type}
-          value={type === 'number' && field.value === 0 ? '' : field.value}
+          value={type === "number" && field.value === 0 ? "" : field.value}
           onChange={(event) => {
-            if (type === 'number') {
+            if (type === "number") {
               field.onChange(Number(event.target.value));
             } else {
               field.onChange(event.target.value);
@@ -33,7 +33,7 @@ export function RHFTextField({ name, helperText, type, ...other }: Props) {
           error={!!error}
           helperText={error?.message ?? helperText}
           inputProps={{
-            autoComplete: 'off',
+            autoComplete: "off",
           }}
           {...other}
         />

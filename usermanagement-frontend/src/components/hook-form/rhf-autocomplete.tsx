@@ -1,16 +1,16 @@
-import type { TextFieldProps } from '@mui/material/TextField';
-import type { AutocompleteProps } from '@mui/material/Autocomplete';
+import type { TextFieldProps } from "@mui/material/TextField";
+import type { AutocompleteProps } from "@mui/material/Autocomplete";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
 
 // ----------------------------------------------------------------------
 
 export type AutocompleteBaseProps = Omit<
   AutocompleteProps<any, boolean, boolean, boolean>,
-  'renderInput'
+  "renderInput"
 >;
 
 export type RHFAutocompleteProps = AutocompleteBaseProps & {
@@ -19,7 +19,7 @@ export type RHFAutocompleteProps = AutocompleteBaseProps & {
   placeholder?: string;
   hiddenLabel?: boolean;
   helperText?: React.ReactNode;
-  variant?: TextFieldProps['variant'];
+  variant?: TextFieldProps["variant"];
 };
 
 export function RHFAutocomplete({
@@ -40,7 +40,9 @@ export function RHFAutocomplete({
         <Autocomplete
           {...field}
           id={`rhf-autocomplete-${name}`}
-          onChange={( newValue) => setValue(name, newValue, { shouldValidate: true })}
+          onChange={(newValue) =>
+            setValue(name, newValue, { shouldValidate: true })
+          }
           renderInput={(params) => (
             <TextField
               {...params}
@@ -49,7 +51,10 @@ export function RHFAutocomplete({
               variant={variant}
               error={!!error}
               helperText={error ? error?.message : helperText}
-              inputProps={{ ...params.inputProps, autoComplete: 'new-password' }}
+              inputProps={{
+                ...params.inputProps,
+                autoComplete: "new-password",
+              }}
             />
           )}
           {...other}

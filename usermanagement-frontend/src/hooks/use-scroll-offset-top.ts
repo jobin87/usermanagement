@@ -1,5 +1,5 @@
-import { useScroll, useMotionValueEvent } from 'framer-motion';
-import { useRef, useState, useCallback } from 'react';
+import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useRef, useState, useCallback } from "react";
 
 // ----------------------------------------------------------------------
 
@@ -24,10 +24,10 @@ export function useScrollOffSetTop(top = 0): UseScrollOffSetTopReturn {
         setOffsetTop(scrollHeight > top);
       }
     },
-    [top] // Removed `elementRef`, as it's stable
+    [top], // Removed `elementRef`, as it's stable
   );
 
-  useMotionValueEvent(scrollY, 'change', handleScrollChange); // Removed unnecessary useMemo
+  useMotionValueEvent(scrollY, "change", handleScrollChange); // Removed unnecessary useMemo
 
-  return {  offsetTop }; // Removed useMemo
+  return { offsetTop }; // Removed useMemo
 }

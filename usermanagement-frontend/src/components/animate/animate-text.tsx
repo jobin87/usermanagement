@@ -1,24 +1,24 @@
-import type { TypographyProps } from '@mui/material/Typography';
-import type { Variants, UseInViewOptions } from 'framer-motion';
+import type { TypographyProps } from "@mui/material/Typography";
+import type { Variants, UseInViewOptions } from "framer-motion";
 
-import { useRef, useEffect } from 'react';
-import { m, useInView, useAnimation } from 'framer-motion';
+import { useRef, useEffect } from "react";
+import { m, useInView, useAnimation } from "framer-motion";
 
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
-import { varFade, varContainer } from './variants';
+import { varFade, varContainer } from "./variants";
 
 // ----------------------------------------------------------------------
 
 export const animateTextClasses = {
-  root: 'animate-text-root',
-  lines: 'animate-text-lines',
-  line: 'animate-text-line',
-  word: 'animate-text-word',
-  char: 'animate-text-char',
-  space: 'animate-text-space',
-  srOnly: 'sr-only',
+  root: "animate-text-root",
+  lines: "animate-text-lines",
+  line: "animate-text-line",
+  word: "animate-text-word",
+  char: "animate-text-char",
+  space: "animate-text-space",
+  srOnly: "sr-only",
   dataIndex: '[data-columns="3"]',
 };
 
@@ -26,8 +26,8 @@ export type AnimateTextProps = TypographyProps & {
   variants?: Variants;
   repeatDelay?: number;
   text: string | string[];
-  once?: UseInViewOptions['once'];
-  amount?: UseInViewOptions['amount'];
+  once?: UseInViewOptions["once"];
+  amount?: UseInViewOptions["amount"];
 };
 
 export function AnimateText({
@@ -35,7 +35,7 @@ export function AnimateText({
   variants,
   once = true,
   amount = 1 / 3,
-  component = 'p',
+  component = "p",
   repeatDelay = 500, // 1000 = 1s
   sx,
   className,
@@ -55,18 +55,18 @@ export function AnimateText({
     const show = () => {
       if (repeatDelay) {
         timeout = setTimeout(async () => {
-          await controls.start('initial');
-          controls.start('animate');
+          await controls.start("initial");
+          controls.start("animate");
         }, repeatDelay);
       } else {
-        controls.start('animate');
+        controls.start("animate");
       }
     };
 
     if (isInView) {
       show();
     } else {
-      controls.start('initial');
+      controls.start("initial");
     }
 
     return () => clearTimeout(timeout);
@@ -75,7 +75,9 @@ export function AnimateText({
   return (
     <Typography
       component={component}
-      className={animateTextClasses.root.concat(className ? ` ${className}` : '')}
+      className={animateTextClasses.root.concat(
+        className ? ` ${className}` : "",
+      )}
       sx={{
         p: 0,
         m: 0,
@@ -85,20 +87,20 @@ export function AnimateText({
          */
         [`& .${animateTextClasses.srOnly}`]: {
           p: 0,
-          width: '1px',
-          height: '1px',
-          margin: '-1px',
+          width: "1px",
+          height: "1px",
+          margin: "-1px",
           borderWidth: 0,
-          overflow: 'hidden',
-          position: 'absolute',
-          whiteSpace: 'nowrap',
-          clip: 'rect(0, 0, 0, 0)',
+          overflow: "hidden",
+          position: "absolute",
+          whiteSpace: "nowrap",
+          clip: "rect(0, 0, 0, 0)",
         },
         ...sx,
       }}
       {...other}
     >
-      <span className={animateTextClasses.srOnly}>{textArray.join(' ')}</span>
+      <span className={animateTextClasses.srOnly}>{textArray.join(" ")}</span>
 
       <Box
         component={m.span}
@@ -116,10 +118,11 @@ export function AnimateText({
             key={`${line}-${lineIndex}`}
             data-index={lineIndex}
             className={animateTextClasses.line}
-            sx={{ display: 'block' }}
+            sx={{ display: "block" }}
           >
-            {line.split(' ').map((word, wordIndex) => {
-              const lastWordInline = line.split(' ')[line.split(' ').length - 1];
+            {line.split(" ").map((word, wordIndex) => {
+              const lastWordInline =
+                line.split(" ")[line.split(" ").length - 1];
 
               return (
                 <Box
@@ -127,16 +130,16 @@ export function AnimateText({
                   key={`${word}-${wordIndex}`}
                   data-index={wordIndex}
                   className={animateTextClasses.word}
-                  sx={{ display: 'inline-block' }}
+                  sx={{ display: "inline-block" }}
                 >
-                  {word.split('').map((char, charIndex) => (
+                  {word.split("").map((char, charIndex) => (
                     <Box
                       component={m.span}
                       key={`${char}-${charIndex}`}
                       variants={variants ?? varFade().in}
                       data-index={charIndex}
                       className={animateTextClasses.char}
-                      sx={{ display: 'inline-block' }}
+                      sx={{ display: "inline-block" }}
                     >
                       {char}
                     </Box>
@@ -146,7 +149,7 @@ export function AnimateText({
                     <Box
                       component="span"
                       className={animateTextClasses.space}
-                      sx={{ display: 'inline-block' }}
+                      sx={{ display: "inline-block" }}
                     >
                       &nbsp;
                     </Box>

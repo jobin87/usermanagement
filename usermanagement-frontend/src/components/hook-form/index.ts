@@ -1,29 +1,25 @@
-export * from './fields';
+export * from "./fields";
 
-export * from './rhf-code';
+export * from "./rhf-code";
 
+export * from "./rhf-select";
 
-export * from './rhf-select';
+export * from "./rhf-rating";
 
-export * from './rhf-rating';
+export * from "./rhf-switch";
 
-export * from './rhf-switch';
+export * from "./rhf-slider";
 
+export * from "./rhf-checkbox";
 
-export * from './rhf-slider';
+export * from "./schema-helper";
 
-export * from './rhf-checkbox';
+export * from "./form-provider";
 
-export * from './schema-helper';
+export * from "./rhf-text-field";
 
-export * from './form-provider';
+export * from "./rhf-date-picker";
 
-export * from './rhf-text-field';
+export * from "./rhf-radio-group";
 
-export * from './rhf-date-picker';
-
-export * from './rhf-radio-group';
-
-
-export * from './rhf-autocomplete';
-
+export * from "./rhf-autocomplete";

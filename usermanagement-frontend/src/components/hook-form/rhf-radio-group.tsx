@@ -1,17 +1,17 @@
-import type { RadioProps } from '@mui/material/Radio';
-import type { Theme, SxProps } from '@mui/material/styles';
-import type { FormLabelProps } from '@mui/material/FormLabel';
-import type { RadioGroupProps } from '@mui/material/RadioGroup';
-import type { FormHelperTextProps } from '@mui/material/FormHelperText';
+import type { RadioProps } from "@mui/material/Radio";
+import type { Theme, SxProps } from "@mui/material/styles";
+import type { FormLabelProps } from "@mui/material/FormLabel";
+import type { RadioGroupProps } from "@mui/material/RadioGroup";
+import type { FormHelperTextProps } from "@mui/material/FormHelperText";
 
-import { Controller, useFormContext } from 'react-hook-form';
+import { Controller, useFormContext } from "react-hook-form";
 
-import Radio from '@mui/material/Radio';
-import FormLabel from '@mui/material/FormLabel';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControlLabel from '@mui/material/FormControlLabel';
+import Radio from "@mui/material/Radio";
+import FormLabel from "@mui/material/FormLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControl from "@mui/material/FormControl";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 // ----------------------------------------------------------------------
 
@@ -21,9 +21,9 @@ type Props = RadioGroupProps & {
   helperText?: React.ReactNode;
   slotProps?: {
     wrap?: SxProps<Theme>;
-    radio: RadioProps;
-    formLabel: FormLabelProps;
-    formHelperText: FormHelperTextProps;
+    radio?: RadioProps;
+    formLabel?: FormLabelProps;
+    formHelperText?: FormHelperTextProps;
   };
   options: {
     label: string;
@@ -31,7 +31,14 @@ type Props = RadioGroupProps & {
   }[];
 };
 
-export function RHFRadioGroup({ name, label, options, helperText, slotProps, ...other }: Props) {
+export function RHFRadioGroup({
+  name,
+  label,
+  options,
+  helperText,
+  slotProps,
+  ...other
+}: Props) {
   const { control } = useFormContext();
 
   const labelledby = `${name}-radio-buttons-group-label`;
@@ -48,7 +55,7 @@ export function RHFRadioGroup({ name, label, options, helperText, slotProps, ...
               id={labelledby}
               component="legend"
               {...slotProps?.formLabel}
-              sx={{ mb: 1, typography: 'body2', ...slotProps?.formLabel.sx }}
+              sx={{ mb: 1, typography: "body2", ...slotProps?.formLabel?.sx }}
             >
               {label}
             </FormLabel>
@@ -63,9 +70,12 @@ export function RHFRadioGroup({ name, label, options, helperText, slotProps, ...
                   <Radio
                     {...slotProps?.radio}
                     inputProps={{
-                      ...(!option.label && { 'aria-label': ariaLabel(option.label) }),
+                      ...(!option.label && {
+                        "aria-label": ariaLabel(option.label),
+                      }),
                       ...slotProps?.radio?.inputProps,
                     }}
+                    size="small"
                   />
                 }
                 label={option.label}
@@ -74,7 +84,11 @@ export function RHFRadioGroup({ name, label, options, helperText, slotProps, ...
           </RadioGroup>
 
           {(!!error || helperText) && (
-            <FormHelperText error={!!error} sx={{ mx: 0 }} {...slotProps?.formHelperText}>
+            <FormHelperText
+              error={!!error}
+              sx={{ mx: 0 }}
+              {...slotProps?.formHelperText}
+            >
               {error ? error?.message : helperText}
             </FormHelperText>
           )}

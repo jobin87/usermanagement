@@ -1,26 +1,23 @@
-import { Navigate, Outlet } from 'react-router-dom';
-import { GuestGuard } from 'src/guard';
-import { Suspense, lazy } from 'react';
-import { LoadingScreen } from 'src/components/loading-screen';
-import AuthLayout from 'src/layout/authLayout';
+import { Navigate, Outlet } from "react-router-dom";
+import { GuestGuard } from "src/guard";
+import { Suspense, lazy } from "react";
+import { LoadingScreen } from "src/components/loading-screen";
+import MainLayout from "src/layout/dashboard/layout";
 
 // Lazy loaded components
-const FormList = lazy(() => import('src/pages/form-list'));
+const FormList = lazy(() => import("src/pages/form-list"));
 
-
-
-// Layout + fallback
 const layoutContent = (
-  <AuthLayout>
+  <MainLayout>
     <Suspense fallback={<LoadingScreen />}>
       <Outlet />
     </Suspense>
-  </AuthLayout>
+  </MainLayout>
 );
 
 const dashboardRoutes = [
   {
-    path: 'dashboard',
+    path: "dashboard",
     element: <GuestGuard>{layoutContent}</GuestGuard>,
     children: [
       {
@@ -28,12 +25,9 @@ const dashboardRoutes = [
         element: <Navigate to="formlist" replace />, // ✅ This is the key fix
       },
       {
-        path: 'formlist',
+        path: "formlist",
         element: <Outlet />,
-        children: [
-          { index: true, element: <FormList />},
-
-        ],
+        children: [{ index: true, element: <FormList /> }],
       },
     ],
   },

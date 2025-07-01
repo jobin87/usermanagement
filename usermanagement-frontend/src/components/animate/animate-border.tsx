@@ -1,11 +1,10 @@
-import type { BoxProps } from '@mui/material/Box';
-import type { Easing, RepeatType } from 'framer-motion';
+import type { BoxProps } from "@mui/material/Box";
+import type { Easing, RepeatType } from "framer-motion";
 
-import { m } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { m } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 
-import Box from '@mui/material/Box';
-
+import Box from "@mui/material/Box";
 
 // ----------------------------------------------------------------------
 
@@ -39,7 +38,9 @@ export function AnimateBorder({ animate, sx }: AnimateBorderProps) {
 
   const [aspectRatio, setAspectRatio] = useState(1);
 
-  const [animateStyle, setAnimateStyle] = useState<React.CSSProperties | null>(null);
+  const [animateStyle, setAnimateStyle] = useState<React.CSSProperties | null>(
+    null,
+  );
 
   const values = {
     disable: animate?.disable,
@@ -47,12 +48,12 @@ export function AnimateBorder({ animate, sx }: AnimateBorderProps) {
     loop: animate?.loop ?? true,
     angle: animate?.angle ?? 315,
     length: animate?.length ?? 40,
-    width: animate?.width ?? '2px',
-    color: animate?.color ?? '#000',
-    ease: animate?.ease ?? 'linear',
+    width: animate?.width ?? "2px",
+    color: animate?.color ?? "#000",
+    ease: animate?.ease ?? "linear",
     duration: animate?.duration ?? 8,
     distance: animate?.distance ?? 20,
-    repeatType: animate?.repeatType ?? 'loop',
+    repeatType: animate?.repeatType ?? "loop",
     disableDoubleline: animate?.disableDoubleline,
     outline: animate?.outline ?? `135deg, rgba(0,0,0,0.08), rgba(0,0,0,0.08)`,
   };
@@ -115,10 +116,9 @@ export function AnimateBorder({ animate, sx }: AnimateBorderProps) {
       sx={{
         minWidth: 40,
         minHeight: 40,
-        position: 'relative',
-        borderRadius: 'inherit',
-        '&::before': {
-        },
+        position: "relative",
+        borderRadius: "inherit",
+        "&::before": {},
         ...sx,
       }}
     >
@@ -130,13 +130,14 @@ export function AnimateBorder({ animate, sx }: AnimateBorderProps) {
           !values.disable
             ? {
                 background: background(
-                  typeof values.color === 'string' ? values.color : values.color[0]
+                  typeof values.color === "string"
+                    ? values.color
+                    : values.color[0],
                 ),
               }
             : undefined
         }
-        sx={{
-        }}
+        sx={{}}
       />
 
       {!values.disable && !values.disableDoubleline && (
@@ -145,11 +146,11 @@ export function AnimateBorder({ animate, sx }: AnimateBorderProps) {
           transition={transition}
           animate={{
             background: background(
-              typeof values.color === 'string' ? values.color : values.color[1]
+              typeof values.color === "string" ? values.color : values.color[1],
             ),
           }}
           sx={{
-            transform: 'scale(-1)',
+            transform: "scale(-1)",
             ...(animateStyle && {
               paddingTop: animateStyle?.paddingBottom,
               paddingBottom: animateStyle?.paddingTop,

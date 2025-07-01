@@ -8,12 +8,10 @@ const ROOTS = {
 };
 
 export const paths = {
-   auth: {
-      Form: `${ROOTS.AUTH}`,
+  auth: {
+    Form: `${ROOTS.AUTH}`,
   },
   dashboard: {
     FormList: `${ROOTS.DASHBOARD}`,
-    
   },
 };
-

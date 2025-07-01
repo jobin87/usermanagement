@@ -1,8 +1,8 @@
-import FingerprintJS from '@fingerprintjs/fingerprintjs';
-import { useEffect, useState } from 'react';
+import FingerprintJS from "@fingerprintjs/fingerprintjs";
+import { useEffect, useState } from "react";
 
 const useUniqueBrowserId = () => {
-  const [uniqueId, setUniqueId] = useState<string>('');
+  const [uniqueId, setUniqueId] = useState<string>("");
 
   useEffect(() => {
     const fetchFingerprint = async () => {
@@ -12,7 +12,7 @@ const useUniqueBrowserId = () => {
     };
 
     fetchFingerprint().catch((error) => {
-      console.error('Error fetching fingerprint:', error);
+      console.error("Error fetching fingerprint:", error);
     });
   }, []);
 

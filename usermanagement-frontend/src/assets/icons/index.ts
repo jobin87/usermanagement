@@ -1,4 +1,4 @@
-export * from './social-icons';
+export * from "./social-icons";
 
 // export { default as SentIcon } from './sent-icon';
 

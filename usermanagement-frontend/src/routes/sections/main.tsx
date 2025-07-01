@@ -1,21 +1,14 @@
-import { lazy, Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { lazy, Suspense } from "react";
 
-
-// ----------------------------------------------------------------------
-
-// Error
-const Page404 = lazy(() => import('src/pages/error/404'));
-
-// ----------------------------------------------------------------------
+const Page404 = lazy(() => import("src/pages/404"));
 
 export const mainRoutes = [
   {
+    path: "/404", // ✅ Must be absolute
     element: (
-      <Suspense >
-        <Outlet />
+      <Suspense fallback={null}>
+        <Page404 />
       </Suspense>
     ),
-    children: [{ path: '404', element: <Page404 /> }],
   },
 ];

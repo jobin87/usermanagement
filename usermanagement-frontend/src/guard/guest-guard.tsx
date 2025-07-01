@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'src/routes/hooks';
-import { CONFIG } from 'src/config-global';
-import { SplashScreen } from 'src/components/loading-screen';
+import { useEffect, useState } from "react";
+import { useRouter } from "src/routes/hooks";
+import { SplashScreen } from "src/components/loading-screen";
 
 type Props = {
   children: React.ReactNode;
@@ -21,7 +20,7 @@ export function GuestGuard({ children }: Props) {
   }, []);
 
   if (loading) {
-    return <SplashScreen/>;
+    return <SplashScreen />;
   }
 
   return <>{children}</>;

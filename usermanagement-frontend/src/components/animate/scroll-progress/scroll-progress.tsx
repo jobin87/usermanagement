@@ -1,9 +1,9 @@
-import type { MotionValue } from 'framer-motion';
-import type { BoxProps } from '@mui/material/Box';
+import type { MotionValue } from "framer-motion";
+import type { BoxProps } from "@mui/material/Box";
 
-import { m, useSpring } from 'framer-motion';
+import { m, useSpring } from "framer-motion";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
 // ----------------------------------------------------------------------
 
@@ -11,8 +11,15 @@ export interface ScrollProgressProps extends BoxProps {
   size?: number;
   thickness?: number;
   progress: MotionValue<number>;
-  variant: 'linear' | 'circular';
-  color?: 'inherit' | 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error';
+  variant: "linear" | "circular";
+  color?:
+    | "inherit"
+    | "primary"
+    | "secondary"
+    | "info"
+    | "success"
+    | "warning"
+    | "error";
 }
 
 export function ScrollProgress({
@@ -20,13 +27,17 @@ export function ScrollProgress({
   variant,
   progress,
   thickness = 3.6,
-  color = 'primary',
+  color = "primary",
   sx,
   ...other
 }: ScrollProgressProps) {
-  const scaleX = useSpring(progress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  const scaleX = useSpring(progress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
-  const progressSize = variant === 'circular' ? (size ?? 64) : (size ?? 3);
+  const progressSize = variant === "circular" ? (size ?? 64) : (size ?? 3);
 
   const renderCircular = (
     <Box
@@ -38,16 +49,16 @@ export function ScrollProgress({
       sx={{
         width: progressSize,
         height: progressSize,
-        transform: 'rotate(-90deg)',
+        transform: "rotate(-90deg)",
         color: (theme) => theme.vars.palette.text.primary,
-        ...(color !== 'inherit' && {
+        ...(color !== "inherit" && {
           color: (theme) => theme.vars.palette[color].main,
         }),
         circle: {
-          fill: 'none',
+          fill: "none",
           strokeDashoffset: 0,
           strokeWidth: thickness,
-          stroke: 'currentColor',
+          stroke: "currentColor",
         },
         ...sx,
       }}
@@ -81,9 +92,9 @@ export function ScrollProgress({
         right: 0,
         zIndex: 1999,
         height: progressSize,
-        transformOrigin: '0%',
-        bgcolor: 'text.primary',
-        ...(color !== 'inherit' && {
+        transformOrigin: "0%",
+        bgcolor: "text.primary",
+        ...(color !== "inherit" && {
           background: (theme) =>
             `linear-gradient(135deg, ${theme.vars.palette[color].light}, ${theme.vars.palette[color].main})`,
         }),
@@ -95,6 +106,8 @@ export function ScrollProgress({
   );
 
   return (
-    <Box sx={{ overflow: 'hidden' }}>{variant === 'circular' ? renderCircular : renderLinear}</Box>
+    <Box sx={{ overflow: "hidden" }}>
+      {variant === "circular" ? renderCircular : renderLinear}
+    </Box>
   );
 }
