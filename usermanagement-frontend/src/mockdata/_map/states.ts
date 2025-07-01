@@ -1,4 +1,4 @@
-// src/data/cities.ts
+// src/data/states.ts
 
 export const indianStates = [
   { label: "Andhra Pradesh", value: "andhra-pradesh" },

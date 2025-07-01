@@ -6,23 +6,17 @@ import LoadingButton from "@mui/lab/LoadingButton";
 import {
   Box,
   Card,
-  Stack,
-  Typography,
   MenuItem,
-  Dialog,
-  Divider,
-  FormControl,
-  FormControlLabel,
-  Radio,
-  FormLabel,
+  Stack,
+  Typography
 } from "@mui/material";
 
-import { Field, Form } from "src/components/hook-form";
-import { useFormContextData } from "src/context/form-context";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { Field, Form } from "src/components/hook-form";
+import { useFormContextData } from "src/context/form-context";
+import { indianStates } from "src/mockdata/_map/states";
 import { paths } from "src/routes/paths";
-import { indianStates } from "src/mockdata/_map/cities";
 
 export type FormSchemaType = zod.infer<typeof FormSchema>;
 
