@@ -2,7 +2,6 @@ import { Navigate, Outlet } from "react-router-dom";
 import { GuestGuard } from "src/guard";
 import { Suspense, lazy } from "react";
 import { LoadingScreen } from "src/components/loading-screen";
-import AuthLayout from "src/layout/register/registerLayout";
 import { SimpleLayout } from "src/layout/simple";
 
 // Lazy loaded components

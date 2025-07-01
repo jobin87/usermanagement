@@ -12,15 +12,15 @@ const root = ReactDOM.createRoot(
 root.render(
   <StrictMode>
     <HelmetProvider>
-        <BrowserRouter>
-          {" "}
-          {/* ✅ Fix is here */}
-          <Suspense fallback={<div>Loading...</div>}>
-            <FormProvider>
-              <App />
-            </FormProvider>
-          </Suspense>
-        </BrowserRouter>
+      <BrowserRouter>
+        {" "}
+        {/* ✅ Fix is here */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <FormProvider>
+            <App />
+          </FormProvider>
+        </Suspense>
+      </BrowserRouter>
     </HelmetProvider>
   </StrictMode>,
 );

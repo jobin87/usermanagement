@@ -15,7 +15,6 @@ import { Theme } from "@emotion/react";
 
 interface HeaderProps {
   sx?: SxProps<Theme>;
-
 }
 
 const Header: React.FC<HeaderProps> = ({ sx }) => {
@@ -28,7 +27,6 @@ const Header: React.FC<HeaderProps> = ({ sx }) => {
     setAnchorElNav(event.currentTarget);
   };
 
-
   return (
     <AppBar
       position="sticky"
@@ -38,10 +36,10 @@ const Header: React.FC<HeaderProps> = ({ sx }) => {
           boxShadow: theme.shadows[9],
         }),
         ...sx,
-        bgcolor:{
-          xs:"#301934",
-          md:"none"
-        }
+        bgcolor: {
+          xs: "#301934",
+          md: "none",
+        },
       }}
     >
       <Toolbar
@@ -56,7 +54,6 @@ const Header: React.FC<HeaderProps> = ({ sx }) => {
             aria-label="menu"
             onClick={handleOpenNavMenu}
             color="inherit"
-            
           >
             <MenuIcon />
           </IconButton>

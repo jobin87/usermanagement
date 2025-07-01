@@ -1,16 +1,15 @@
-import type { Breakpoint, SxProps, Theme } from '@mui/material/styles';
+import type { Breakpoint, SxProps, Theme } from "@mui/material/styles";
 
-import Alert from '@mui/material/Alert';
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
+import Alert from "@mui/material/Alert";
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
 
-import { RouterLink } from 'src/routes/components';
-import { paths } from 'src/routes/paths';
+import { RouterLink } from "src/routes/components";
+import { paths } from "src/routes/paths";
 
-
-import { LayoutSection } from '../core/layout-section';
-import { Main } from './main';
-import Header from '../core/header-section';
+import { LayoutSection } from "../core/layout-section";
+import { Main } from "./main";
+import Header from "../core/header-section";
 
 // ----------------------------------------------------------------------
 
@@ -25,16 +24,15 @@ export type SimpleLayoutProps = {
   };
 };
 
-export function SimpleLayout({ sx, children, header}: SimpleLayoutProps) {
-  const layoutQuery: Breakpoint = 'md';
+export function SimpleLayout({ sx, children, header }: SimpleLayoutProps) {
+  const layoutQuery: Breakpoint = "md";
 
   return (
     <LayoutSection
       /** **************************************
        * Header
        *************************************** */
-      headerSection={
-        <Header/>}
+      headerSection={<Header />}
       /** **************************************
        * Footer
        *************************************** */
@@ -42,7 +40,7 @@ export function SimpleLayout({ sx, children, header}: SimpleLayoutProps) {
        * Style
        *************************************** */
       cssVars={{
-        '--layout-simple-content-compact-width': '448px',
+        "--layout-simple-content-compact-width": "448px",
       }}
       sx={sx}
     >

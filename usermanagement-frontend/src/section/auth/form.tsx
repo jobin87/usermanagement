@@ -34,12 +34,14 @@ export const FormSchema = zod.object({
       message: "Name must not contain special characters (except spaces).",
     }),
   State: zod.string().min(1, { message: "state is required!" }),
-   Age: zod.preprocess(
+  Age: zod.preprocess(
     (val) => {
       const parsed = Number(val);
       return isNaN(parsed) ? undefined : parsed;
     },
-    zod.number().min(1, { message: "Age is required and must be greater than 0" })
+    zod
+      .number()
+      .min(1, { message: "Age is required and must be greater than 0" }),
   ) as zod.ZodEffects<zod.ZodNumber, number>,
   Gender: zod.string().min(1, { message: "Gender is required!" }),
 });
@@ -84,7 +86,7 @@ export function FormView() {
   });
 
   return (
-    <Form methods={methods} onSubmit={onSubmit} >
+    <Form methods={methods} onSubmit={onSubmit}>
       <Card
         sx={{
           width: "100%",
@@ -156,10 +158,9 @@ export function FormView() {
                 sx={{ maxWidth: { sm: 400 } }}
               >
                 <MenuItem value="">Select your state</MenuItem>
-                {indianStates.map((state)=>(
-                  <MenuItem value={state.label}>{state.value}</MenuItem>
+                {indianStates.map((state) => (
+                  <MenuItem key={state.value} value={state.label}>{state.value}</MenuItem>
                 ))}
-                
               </Field.Select>
             </Stack>
 

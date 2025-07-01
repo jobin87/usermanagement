@@ -8,8 +8,8 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
-    <LayoutSection headerSection={<Header/>}>
-      <Main >{children}</Main>
+    <LayoutSection headerSection={<Header />}>
+      <Main>{children}</Main>
     </LayoutSection>
   );
 };

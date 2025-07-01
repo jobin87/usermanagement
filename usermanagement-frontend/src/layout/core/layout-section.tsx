@@ -17,7 +17,7 @@ export function LayoutSection({
   headerSection,
 }: LayoutSectionProps) {
   return (
-    <Box >
+    <Box>
       <GlobalStyles
         styles={{
           html: { margin: 0, padding: 0, boxSizing: "border-box" },

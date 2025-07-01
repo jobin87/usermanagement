@@ -52,7 +52,7 @@ export const FormListPage = () => {
 
   const handleOpenMenu = (
     event: React.MouseEvent<HTMLElement>,
-    index: number
+    index: number,
   ) => {
     setAnchorEl(event.currentTarget);
     setSelectedIndex(index);
@@ -100,21 +100,31 @@ export const FormListPage = () => {
     );
   }
   return (
-     <Box sx={{width:{
-       xs:"100%",
-       sm:"100%",
-       md:"80%",
-     },mb:2,p:{
-       xs:2,
-       md:0
-     }}}>
-       <Typography sx={{mt:4}} variant="h6" gutterBottom>
+    <Box
+      sx={{
+        width: {
+          xs: "100%",
+          sm: "100%",
+          md: "80%",
+        },
+        mb: 2,
+        p: {
+          xs: 2,
+          md: 0,
+        },
+      }}
+    >
+      <Typography sx={{ mt: 4 }} variant="h6" gutterBottom>
         Submitted Forms List
       </Typography>
-      <Divider  sx={{mb:{
-        xs:0,
-        md:3
-      }}}/>
+      <Divider
+        sx={{
+          mb: {
+            xs: 0,
+            md: 3,
+          },
+        }}
+      />
 
       <TableContainer component={Paper} sx={{ borderRadius: 2 }}>
         <Table size="small">
@@ -189,7 +199,7 @@ export const FormListPage = () => {
                 px: 2,
               }}
             >
-              <Field.Text name="Name" label="Name" fullWidth   margin="normal"/>
+              <Field.Text name="Name" label="Name" fullWidth margin="normal" />
               <Field.Text name="Age" label="Age" type="number" fullWidth />
               <Field.Select name="Gender" label="Gender" fullWidth>
                 <MenuItem value="Male">Male</MenuItem>
@@ -232,6 +242,6 @@ export const FormListPage = () => {
           </Button>
         </DialogActions>
       </Dialog>
-     </Box>
+    </Box>
   );
 };

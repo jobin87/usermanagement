@@ -67,11 +67,9 @@ export const schemaHelper = {
    * defaultValue === '' | <p></p>
    */
   editor: (props?: InputProps) =>
-    zod
-      .string()
-      .min(8, {
-        message: props?.message?.required_error ?? "Editor is required!",
-      }),
+    zod.string().min(8, {
+      message: props?.message?.required_error ?? "Editor is required!",
+    }),
   /**
    * Object
    * defaultValue === null

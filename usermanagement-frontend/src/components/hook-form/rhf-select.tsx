@@ -56,7 +56,14 @@ export function RHFSelect({
           SelectProps={{
             native,
             MenuProps: {
-              PaperProps: { sx: { maxHeight: 220, width: '30%',  maxWidth: '100vw', ...slotProps?.paper } },
+              PaperProps: {
+                sx: {
+                  maxHeight: 220,
+                  width: "30%",
+                  maxWidth: "100vw",
+                  ...slotProps?.paper,
+                },
+              },
             },
             sx: { textTransform: "capitalize" },
           }}

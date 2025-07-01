@@ -1,21 +1,21 @@
-import { m } from 'framer-motion';
+import { m } from "framer-motion";
 
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 
-import { RouterLink } from 'src/routes/components';
+import { RouterLink } from "src/routes/components";
 
-import { ForbiddenIllustration } from 'src/assets/illustrations';
+import { ForbiddenIllustration } from "src/assets/illustrations";
 
-import { MotionContainer, varBounce } from 'src/components/animate';
-import AuthLayout from 'src/layout/register/registerLayout';
+import { MotionContainer, varBounce } from "src/components/animate";
+import AuthLayout from "src/layout/register/registerLayout";
 
 // ----------------------------------------------------------------------
 
 export function View403() {
   return (
-    <AuthLayout >
+    <AuthLayout>
       <Container component={MotionContainer}>
         <m.div variants={varBounce().in}>
           <Typography variant="h3" sx={{ mb: 2 }}>
@@ -24,9 +24,9 @@ export function View403() {
         </m.div>
 
         <m.div variants={varBounce().in}>
-          <Typography sx={{ color: 'text.secondary' }}>
-            The page you’re trying to access has restricted access. Please refer to your system
-            administrator.
+          <Typography sx={{ color: "text.secondary" }}>
+            The page you’re trying to access has restricted access. Please refer
+            to your system administrator.
           </Typography>
         </m.div>
 
@@ -34,7 +34,12 @@ export function View403() {
           <ForbiddenIllustration sx={{ my: { xs: 5, sm: 10 } }} />
         </m.div>
 
-        <Button component={RouterLink} href="/" size="large" variant="contained">
+        <Button
+          component={RouterLink}
+          href="/"
+          size="large"
+          variant="contained"
+        >
           Go to home
         </Button>
       </Container>

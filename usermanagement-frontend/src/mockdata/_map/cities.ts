@@ -31,10 +31,13 @@ export const indianStates = [
   { label: "West Bengal", value: "west-bengal" },
   { label: "Andaman and Nicobar Islands", value: "andaman-nicobar" },
   { label: "Chandigarh", value: "chandigarh" },
-  { label: "Dadra and Nagar Haveli and Daman and Diu", value: "dadra-nagar-haveli-daman-diu" },
+  {
+    label: "Dadra and Nagar Haveli and Daman and Diu",
+    value: "dadra-nagar-haveli-daman-diu",
+  },
   { label: "Delhi", value: "delhi" },
   { label: "Jammu and Kashmir", value: "jammu-kashmir" },
   { label: "Ladakh", value: "ladakh" },
   { label: "Lakshadweep", value: "lakshadweep" },
-  { label: "Puducherry", value: "puducherry" }
+  { label: "Puducherry", value: "puducherry" },
 ];

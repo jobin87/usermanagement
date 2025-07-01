@@ -36,7 +36,7 @@ export const FormProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   return (
-    <FormContext.Provider value={{ formList, addForm ,setFormList}}>
+    <FormContext.Provider value={{ formList, addForm, setFormList }}>
       {children}
     </FormContext.Provider>
   );
